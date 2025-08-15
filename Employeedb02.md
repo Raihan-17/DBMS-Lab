@@ -74,8 +74,10 @@ SET Salary = Salary * 1.20
 WHERE CompanyName = 'First Bank Corporation';
 
 -- III. Delete employees with no manager
+SET FOREIGN_KEY_CHECKS = 0;
 DELETE FROM employee
 WHERE EmployeeID NOT IN (SELECT EmployeeID FROM manages);
+SET FOREIGN_KEY_CHECKS = 1;
 
 -- IV. Assign a new manager (e.g., ManagerID = 2) to employees with no manager
 INSERT INTO manages (EmployeeID, ManagerID)
