@@ -92,6 +92,13 @@ Queries:
 -- I. Delete loans between 5000 and 15000
 DELETE FROM Loan
 WHERE Amount BETWEEN 5000 AND 15000;
+OR
+SET FOREIGN_KEY_CHECKS = 0;
+
+DELETE FROM Loan
+ WHERE Amount BETWEEN 5000 AND 15000;
+ 
+SET FOREIGN_KEY_CHECKS = 1;
 
 -- II. Branches with no accounts
 SELECT b.BranchName
